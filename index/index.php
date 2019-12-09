@@ -3,7 +3,7 @@
 
 <head>
   <?php
-  include 'layout/head.php';
+  include '../layout/head.php';
   ?>
 </head>
 
@@ -12,13 +12,13 @@
   <div class="wrapper">
 
     <?php
-    include 'layout/header.php'
+    include '../layout/header.php'
     ?>
 
     <!-- =============================================== -->
 
     <!-- Left side column. contains the sidebar -->
-    <?php include 'layout/leftsidebar.php' ?>
+    <?php include '../layout/leftsidebar.php' ?>
 
     <!-- =============================================== -->
 
@@ -75,7 +75,7 @@
     </footer>
 
     <!-- Control Sidebar -->
-    <?php include 'layout/controlsidebar.php' ?>
+    <?php include '../layout/controlsidebar.php' ?>
     <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
