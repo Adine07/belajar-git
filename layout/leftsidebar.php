@@ -26,7 +26,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN MENU</li>
             <li class="active">
-                <a href="index.php">
+                <a href="../index/index.php">
                     <i class="fa fa-dashboard"></i> <span>Beranda</span>
                 </a>
             </li>
@@ -39,12 +39,12 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="#"><i class="fa fa-plus"></i> Tambah Post</a></li>
-                    <li><a href="#"><i class="fa fa-navicon"></i> Beranda Post</a></li>
+                    <li><a href="../post/beranda.php"><i class="fa fa-navicon"></i> Beranda Post</a></li>
                 </ul>
             </li>
             <li class="header">Setting</li>
             <li>
-                <a href="user.php">
+                <a href="../user/index.php">
                     <i class="fa fa-user"></i> <span>User</span>
                 </a>
             </li>
