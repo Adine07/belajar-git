@@ -31,7 +31,8 @@
           <small>Manajemen data user</small>
         </h1>
         <ol class="breadcrumb">
-          <li class="active"><i class="fa fa-user"> User</i></li>
+          <li><a href="../index.php"><i class="fa fa-home"></i> Beranda</a></li>
+          <li class="active"><i class="fa fa-user"></i>User</li>
         </ol>
       </section>
 
@@ -40,58 +41,41 @@
 
         <!-- Default box -->
         <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Striped Full Width Table</h3>
+          <div class="box-header with-border">
+            <a href="create.php" class="btn btn-sm btn-primary">
+              <i class="fa fa-plus"> Tambah</i>
+            </a>
           </div>
           <!-- /.box-header -->
           <div class="box-body no-padding">
             <table class="table table-striped">
               <tr>
-                <th style="width: 10px">#</th>
-                <th>Task</th>
-                <th>Progress</th>
-                <th style="width: 40px">Label</th>
+                <th style="width: 10px">No</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Action</th>
               </tr>
-              <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-red">55%</span></td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-yellow">70%</span></td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-light-blue">30%</span></td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-green">90%</span></td>
-              </tr>
+              <?php
+              include '../koneksi.php';
+              $nomor = 1;
+              $sql = "SELECT * FROM users";
+              $results = mysqli_query($connect, $sql);
+              if (mysqli_num_rows($results)) {
+                while ($row = mysqli_fetch_assoc($results)) {
+              ?>
+                  <tr>
+                    <td><?= $nomor++ ?></td>
+                    <td><?= $row['name'] ?></td>
+                    <td><?= $row['email'] ?></td>
+                    <td>
+                      <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-info btn-s">Edit</a>
+                      <a href="hapus.php?id=<?= $row['id']; ?>" class="btn btn-danger btn-s" onclick="javascript:return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a>
+                    </td>
+                  </tr>
+              <?php
+                                          }
+                                        }
+              ?>
             </table>
           </div>
           <!-- /.box-body -->
